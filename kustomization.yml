@@ -1,0 +1,21 @@
+resources:
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/rbac-secretproviderclass.yaml
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/csidriver.yaml
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/secrets-store.csi.x-k8s.io_secretproviderclasses.yaml
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/secrets-store.csi.x-k8s.io_secretproviderclasspodstatuses.yaml
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/secrets-store-csi-driver.yaml
+
+# If using the driver to sync secrets-store content as Kubernetes Secrets, deploy the additional RBAC permissions
+# required to enable this feature
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/rbac-secretprovidersyncing.yaml
+
+# If using the secret rotation feature, deploy the additional RBAC permissions
+# required to enable this feature
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/rbac-secretproviderrotation.yaml
+
+# If using the CSI Driver token requests feature (https://kubernetes-csi.github.io/docs/token-requests.html) to use
+# pod/workload identity to request a token and use with providers
+- https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/v1.2.3/deploy/rbac-secretprovidertokenrequest.yaml
+
+# Vault CSI Provider
+- https://raw.githubusercontent.com/hashicorp/vault-csi-provider/v1.2.0/deployment/vault-csi-provider.yaml
