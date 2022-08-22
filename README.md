@@ -81,6 +81,7 @@ To configure your vault kubernetes auth backend you need to have your cluster CA
    kubectl config view --raw --minify --flatten -o=jsonpath='{.clusters[].cluster.certificate-authority-data}' | base64 --decode
    ```
 4. Create your vault auth backend with previous information
+5. Use the CSI Provider with this examples: https://www.vaultproject.io/docs/platform/k8s/csi/examples
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
