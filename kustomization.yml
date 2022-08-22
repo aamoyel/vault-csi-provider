@@ -19,3 +19,6 @@ resources:
 
 # Vault CSI Provider
 - https://raw.githubusercontent.com/hashicorp/vault-csi-provider/v1.2.0/deployment/vault-csi-provider.yaml
+
+# Vault auth service account and CRB
+- vault-rbac.yml

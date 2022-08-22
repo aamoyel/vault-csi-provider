@@ -16,6 +16,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#configuration">Configuration</a></li>
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
@@ -62,6 +63,24 @@ You need to have :
    ```sh
    kustomize build . | kubectl apply -f -
    ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Configuration
+To configure your vault kubernetes auth backend you need to have your cluster CA cert, your kubernetes api endpoint and a Reviewer JWT token.
+1. First, get your Token Reviewer JWT:
+   ```sh
+   kubectl get secret -n kube-system vault-auth -o=jsonpath='{.data.token}' | base64 --decode
+   ```
+2. Get your kubernetes api url:
+   ```sh
+   kubectl config view --raw --minify --flatten -o=jsonpath='{.clusters[].cluster.server}'
+   ```
+3. Get your cluster CA certificate:
+   ```sh
+   kubectl config view --raw --minify --flatten -o=jsonpath='{.clusters[].cluster.certificate-authority-data}' | base64 --decode
+   ```
+4. Create your vault auth backend with previous information
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
